@@ -4,12 +4,12 @@ from forward_sub import Forward_Sub
 from back_sub import Back_Sub
 
 def GJ_elimination(A_augmented):
-    
+
     A_augmented = np.asarray(A_augmented)
     A = A_augmented[:,:-1]
-         
+
     L, U, P = PLU_Factorization(A) # LU Factorization
-    
+
     b = A_augmented[:,-1]
     P_b = P.dot(b)
     L_P_b = Forward_Sub(L, P_b)
@@ -17,6 +17,8 @@ def GJ_elimination(A_augmented):
 
     print "x:\n", x
     return x
+
+
 
 if __name__ == '__main__':
     A = [[1,1,1,5],
